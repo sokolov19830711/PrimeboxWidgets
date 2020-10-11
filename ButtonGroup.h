@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QButtonGroup>
 
-
 class ButtonGroup : public QWidget
 {
     Q_OBJECT
