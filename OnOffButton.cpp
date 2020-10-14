@@ -23,7 +23,7 @@ void OnOffButton::setChecked(bool checked)
 
 void OnOffButton::setAlert(bool state)
 {
-    if(state) setStyleSheet("color: #ffffff; border-style:solid; border-width:1px; border-color:#7f7f7f; background-color:#c05046;");
+    if(state) setStyleSheet("color: #ffffff; border-style:solid; border-width:1px; border-color:#7f7f7f; background-color:#c05046; font-size:10pt");
     else setStyleSheet(buttonStyle_);
 }
 
