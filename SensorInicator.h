@@ -26,8 +26,8 @@ private:
     int maxNormal_ = 0x7FFF;
     int minNormal_ = - 0x7FFF;
 
-    QString normalStyle_ = "font-size:14pt; color:#ffffff";
-    QString alertStyle_ = "font-size:14pt; color:#c05046";
+    QString normalStyle_ = "QLabel{font-size:18pt; color:#ffffff}";
+    QString alertStyle_ = "QLabel{font-size:18pt; color:#c05046}";
 
     bool isActive_ = true;
 
