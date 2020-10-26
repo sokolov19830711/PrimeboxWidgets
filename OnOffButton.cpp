@@ -29,6 +29,13 @@ void OnOffButton::setAlert(bool state)
 
 void OnOffButton::changeButtonState()
 {
-    if(isChecked()) setText("ON");
-    else setText("OFF");
+    if(isChecked())
+	{
+		setText("ON");
+	}
+    else
+	{
+		setText("OFF");
+        setStyleSheet(buttonStyle_);
+	}
 }
