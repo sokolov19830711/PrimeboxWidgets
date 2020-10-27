@@ -14,6 +14,7 @@ void SensorInicator::setActive(bool state)
 void SensorInicator::setValue(int value)
 {
     value_ = value;
+    isActive_ = true;
     setText(QString().setNum(value_));
     refresh();
 }
