@@ -16,6 +16,7 @@ SwitchButtonsWidget::SwitchButtonsWidget(int rows, int columns, const QString& b
 	}
 
 	connect(group_, &QButtonGroup::idClicked, this, &SwitchButtonsWidget::idClicked);
+	connect(group_, &QButtonGroup::idToggled, this, &SwitchButtonsWidget::idToggled);
 
 	int counter = 0;
 	for (int i = 0; i < rows; i++)
@@ -43,10 +44,10 @@ int SwitchButtonsWidget::checkedId() const
 	return group_->checkedId();
 }
 
-void SwitchButtonsWidget::setChecked(int id)
+void SwitchButtonsWidget::setChecked(int id, bool state)
 {
 	QAbstractButton* button = group_->button(id);
-	if (button) button->setChecked(true);
+	if (button) button->setChecked(state);
 }
 
 void SwitchButtonsWidget::setButtonsSize(int width, int height)
@@ -68,6 +69,11 @@ void SwitchButtonsWidget::setMargin(int margin)
 void SwitchButtonsWidget::setButtonActive(int id, bool state)
 {
 	buttons_.at(id)->setDisabled(!state);
+}
+
+void SwitchButtonsWidget::setExclusive(bool state)
+{
+	group_->setExclusive(state);
 }
 
 void SwitchButtonsWidget::setButtonsVisible(bool state)
