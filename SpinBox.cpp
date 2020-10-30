@@ -8,20 +8,23 @@ SpinBox::SpinBox(QWidget *parent) : QWidget(parent)
     buttonLayout_ = new QHBoxLayout;
     buttonLayout_->setSpacing(3);
 
+    QString buttonsStyle = "width:22; height:32; border-style:none; color:#ffffff; background:#585858";
+
     minusButton_ = new QPushButton("-");
-    minusButton_->setFixedSize(22, 22);
+    minusButton_->setStyleSheet(buttonsStyle);
     buttonLayout_->addWidget(minusButton_);
 
     valueLine_ = new QLineEdit;
     valueLine_->setInputMask("999");
     setValue(0);
-    valueLine_->setStyleSheet("color: #ffffff; border-style:solid; border-width:1px; border-color:#7f7f7f; background-color:#595959; font-size:11pt");
+    valueLine_->setStyleSheet("height:32; color: #ffffff; border-style:none; background-color:#7e7e7e; font-size:12pt");
+    valueLine_->setTextMargins(5, 5, 0, 5);
     valueLine_->setAlignment(Qt::AlignCenter);
-    setValueFieldWidth(36);
+    setValueFieldWidth(38);
     buttonLayout_->addWidget(valueLine_);
 
     plusButton_ = new QPushButton("+");
-    plusButton_->setFixedSize(22, 22);
+    plusButton_->setStyleSheet(buttonsStyle);
     buttonLayout_->addWidget(plusButton_);
 
     mainLayout_->addLayout(buttonLayout_);
@@ -56,6 +59,7 @@ void SpinBox::setValue(int value)
     {
         currentValue_ = value;
         valueLine_->setText(QString().setNum(currentValue_));
+        valueLine_->setAlignment(Qt::AlignCenter);
         emit valueChanged(currentValue_);
     }
 }
