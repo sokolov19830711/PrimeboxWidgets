@@ -49,7 +49,9 @@ ActionsSetupWidget::ActionsSetupWidget(unsigned char* flagsVar, const QList<int>
 
 	QHBoxLayout* notificationLayout = new QHBoxLayout;
 	notificationLayout->addStretch();
-	notificationLayout->addWidget(new QLabel("Сообщение\nадминистратору"));
+	QLabel* notificationLabel = new QLabel("Сообщение\nадминистратору");
+	notificationLabel->setAlignment(Qt::AlignRight);
+	notificationLayout->addWidget(notificationLabel);
 	notificationLayout->addWidget(_notificationButton);
 	mainLayout->addLayout(notificationLayout);
 
