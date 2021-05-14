@@ -47,6 +47,8 @@ ActionsSetupWidget::ActionsSetupWidget(unsigned char* flagsVar, const QList<int>
 	_PCShutDownButton->setChecked(*_flags & _flagsList[2]);
 	connect(_PCShutDownButton, &OnOffButton::toggled, [=]() {setFlag(_flagsList[2], _PCShutDownButton->isChecked()); });
 
+    OnOffButton* _hddButton = new OnOffButton;
+
 	QHBoxLayout* notificationLayout = new QHBoxLayout;
 	notificationLayout->addStretch();
 	QLabel* notificationLabel = new QLabel("Сообщение\nадминистратору");
@@ -66,6 +68,14 @@ ActionsSetupWidget::ActionsSetupWidget(unsigned char* flagsVar, const QList<int>
 	PCShutDownLayout->addWidget(new QLabel("Выключение ПК"));
 	PCShutDownLayout->addWidget(_PCShutDownButton);
 	mainLayout->addLayout(PCShutDownLayout);
+
+    QHBoxLayout* hddLayout = new QHBoxLayout;
+    hddLayout->addStretch();
+    QLabel* hddLabel = new QLabel("Заблокировать\nHDD диск");
+    hddLabel->setAlignment(Qt::AlignRight);
+    hddLayout->addWidget(hddLabel);
+    hddLayout->addWidget(_hddButton);
+    mainLayout->addLayout(hddLayout);
 }
 
 unsigned char ActionsSetupWidget::flags() const
